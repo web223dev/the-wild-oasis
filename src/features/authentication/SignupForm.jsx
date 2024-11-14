@@ -39,12 +39,18 @@ function SignupForm() {
           disabled={isLoading}
           {...register("email", {
             required: "This field is required",
-            pattern: { value: /\S+@\S+\.\S+/, message: "Please provide a valid email address" },
+            pattern: {
+              value: /\S+@\S+\.\S+/,
+              message: "Please provide a valid email address",
+            },
           })}
         />
       </FormRow>
 
-      <FormRow label="Password (min 8 characters)" error={errors?.password?.message}>
+      <FormRow
+        label="Password (min 8 characters)"
+        error={errors?.password?.message}
+      >
         <Input
           type="password"
           id="password"
@@ -66,14 +72,20 @@ function SignupForm() {
           disabled={isLoading}
           {...register("passwordConfirm", {
             required: "This field is required",
-            validate: (value) => value === getValues().password || "Password need to match",
+            validate: (value) =>
+              value === getValues().password || "Password need to match",
           })}
         />
       </FormRow>
 
       <FormRow>
         {/* type is an HTML attribute! */}
-        <Button variation="secondary" type="reset" disabled={isLoading}>
+        <Button
+          onClick={reset}
+          variation="secondary"
+          type="reset"
+          disabled={isLoading}
+        >
           Cancel
         </Button>
         <Button disabled={isLoading}>Create new user</Button>

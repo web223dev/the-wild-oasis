@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import { HiEllipsisVertical } from "react-icons/hi2";
 import styled from "styled-components";
-import { useOutSideClick } from "../hooks/useOutSideClick";
+import { useOutSideClick } from "../hooks/useOutSideClick.js";
 
 const Menu = styled.div`
   display: flex;
@@ -74,7 +74,9 @@ function Menus({ children }) {
   const close = () => setOpenId("");
   const open = setOpenId;
   return (
-    <MenusContext.Provider value={{ openId, close, open, position, setPosition }}>
+    <MenusContext.Provider
+      value={{ openId, close, open, position, setPosition }}
+    >
       {children}
     </MenusContext.Provider>
   );

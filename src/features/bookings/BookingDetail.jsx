@@ -13,7 +13,7 @@ import BookingDataBox from "./BookingDataBox";
 import useBooking from "./useBooking.js";
 import Modal from "../../ui/Modal.jsx";
 import ConfirmDelete from "../../ui/ConfirmDelete.jsx";
-import { useMoveBack } from "../../hooks/useMoveBack";
+import { useMoveBack } from "../../hooks/useMoveBack.js";
 import { useCheckout } from "../check-in-out/useCheckout.js";
 import { useDeleteBooking } from "./useDeleteBooking.js";
 
@@ -55,7 +55,9 @@ function BookingDetail() {
 
       <ButtonGroup>
         {status === "unconfirmed" && (
-          <Button onClick={() => navigate(`/checkin/${bookingId}`)}>Check in</Button>
+          <Button onClick={() => navigate(`/checkin/${bookingId}`)}>
+            Check in
+          </Button>
         )}
 
         {status === "checked-in" && (

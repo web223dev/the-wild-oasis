@@ -7,7 +7,7 @@ import ButtonGroup from "../../ui/ButtonGroup";
 import Button from "../../ui/Button";
 import ButtonText from "../../ui/ButtonText";
 
-import { useMoveBack } from "../../hooks/useMoveBack";
+import { useMoveBack } from "../../hooks/useMoveBack.js";
 import useBooking from "../bookings/useBooking";
 import Spinner from "../../ui/Spinner";
 import { useEffect, useState } from "react";
@@ -37,9 +37,17 @@ function CheckinBooking() {
 
   if (isLoading || isLoadingSettings) return <Spinner />;
 
-  const { id: bookingId, guests, totalPrice, numGuests, hasBreakfast, numNights } = booking;
+  const {
+    id: bookingId,
+    guests,
+    totalPrice,
+    numGuests,
+    hasBreakfast,
+    numNights,
+  } = booking;
 
-  const optionalBreakfastPrice = settings.breakfastPrice * numNights * numGuests;
+  const optionalBreakfastPrice =
+    settings.breakfastPrice * numNights * numGuests;
 
   function handleCheckin() {
     if (!confirmPaid) return;
@@ -94,9 +102,11 @@ function CheckinBooking() {
           I confirm that {guests.fullName} has paid the total amount of{" "}
           {!addBreakfast
             ? formatCurrency(totalPrice)
-            : `${formatCurrency(totalPrice + optionalBreakfastPrice)} (${formatCurrency(
-                totalPrice
-              )} + ${formatCurrency(optionalBreakfastPrice)})`}
+            : `${formatCurrency(
+                totalPrice + optionalBreakfastPrice
+              )} (${formatCurrency(totalPrice)} + ${formatCurrency(
+                optionalBreakfastPrice
+              )})`}
         </Checkbox>
       </Box>
 

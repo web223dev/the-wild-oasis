@@ -2,7 +2,7 @@ import { cloneElement, createContext, useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import { HiXMark } from "react-icons/hi2";
 import styled from "styled-components";
-import { useOutSideClick } from "../hooks/useOutSideClick.js";
+import { useOutSideClick } from "../hooks/useOutsideClick.js";
 
 const StyledModal = styled.div`
   position: fixed;

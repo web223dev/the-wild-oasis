@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { login as loginApi } from "../../services/apiAuth";
 import toast from "react-hot-toast";
 
-function useLogin() {
+export function useLogin() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
@@ -21,5 +21,3 @@ function useLogin() {
 
   return { login, isLoading };
 }
-
-export default useLogin;

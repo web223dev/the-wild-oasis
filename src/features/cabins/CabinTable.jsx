@@ -1,6 +1,6 @@
 import Spinner from "../../ui/Spinner";
 import CabinRow from "./CabinRow";
-import useCabins from "./useCabins";
+import { useCabins } from "./useCabins";
 import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
 import { useSearchParams } from "react-router-dom";
@@ -29,7 +29,9 @@ function CabinTable() {
   const sortBy = searchParams.get("sortBy") || "startDate-asc";
   const [field, direction] = sortBy.split("-");
   const modifier = direction === "asc" ? 1 : -1;
-  const sortedCabins = filteredCabins.sort((a, b) => (a[field] - b[field]) * modifier);
+  const sortedCabins = filteredCabins.sort(
+    (a, b) => (a[field] - b[field]) * modifier
+  );
 
   return (
     <Menus>

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getBooking } from "../../services/apiBookings.js";
 import { useParams } from "react-router-dom";
 
-export default function useBooking() {
+export function useBooking() {
   const { bookingId } = useParams();
 
   const {

@@ -8,7 +8,7 @@ import Button from "../../ui/Button";
 import ButtonText from "../../ui/ButtonText";
 
 import { useMoveBack } from "../../hooks/useMoveBack.js";
-import useBooking from "../bookings/useBooking";
+import { useBooking } from "../bookings/useBooking";
 import Spinner from "../../ui/Spinner";
 import { useEffect, useState } from "react";
 import Checkbox from "../../ui/Checkbox";
@@ -64,8 +64,6 @@ function CheckinBooking() {
     } else {
       checkin({ bookingId, breakfast: {} });
     }
-
-    checkin(bookingId);
   }
 
   return (
